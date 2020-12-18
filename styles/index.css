@@ -30,6 +30,7 @@
   padding: 0;
   box-sizing: border-box;
   -webkit-font-smoothing: antialiased;
+  color: var(--color-font-text);
 }
 
 body, input {
@@ -38,6 +39,7 @@ body, input {
 
 h1, h2, h3, h4, h5, h6, button, strong {
   font-family: 'Ubuntu', sans-serif;
+  color: var(--color-font-header);
 }
 
 button {

@@ -1,11 +1,11 @@
 .header {
   width: 100%;
   background: var(--color-blue-light);
-  padding: 25px 30px;
+  padding: 1.56rem 1.87rem;
 }
 
 .headerContent {
-  max-width: 1280px;
+  max-width: 80rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -13,8 +13,8 @@
 }
 
 .logo {
-  width: 280px;
-  height: 50px;
+  width: 17.5rem;
+  height: 3.125rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -24,12 +24,12 @@
 .logo span {
   font-family: 'Ubuntu';
   color: var(--color-white);
-  font-size: 18px;
+  font-size: 1.125rem;
   font-weight: 700;
 }
 
 .navMenu {
-  margin-right: -20px;
+  margin-right: -1.25rem;
 }
 
 .menu {
@@ -38,21 +38,21 @@
 }
 
 .menu li {
-  border-radius: 5px;
-  margin: 0 20px;
+  border-radius: 0.312rem;
+  margin: 0 1.25rem;
 }
 
 .menu li a {
   font-family: 'Ubuntu';
   color: var(--color-white);
-  font-size: 18px;
+  font-size: 1.125rem;
   font-weight: 700;
   transition: color 0.3s;
 }
 
 .menu li.activeMenu {
   background: var(--color-yellow);
-  padding: 10px 20px;
+  padding: 0.625rem 1.25rem;
 }
 
 .menu li.activeMenu a {

@@ -1,0 +1,67 @@
+.heroPost {
+  height: 20rem;
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  gap: 1.25rem;
+}
+
+.heroPostImage {
+  width: 50%;
+}
+
+.heroPostImage img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.heroPostData {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 1.25rem 0;
+}
+
+.heroPostLastArticle {
+  border-left: 0.312rem solid var(--color-yellow);
+  padding-left: 0.625rem;
+}
+
+.heroPostLastArticle span {
+  font-size: 1.125rem;
+  font-style: italic;
+  font-weight: 300;
+}
+
+.heroPostTitle {
+ color: var(--color-font-header);
+ font-size: 2.25rem;
+ line-height: 2.75rem; 
+ margin-top: 0.25rem;
+}
+
+.heroPostExcerpt {
+  flex: 1;
+  font-size: 1.125rem;
+  margin: 0.75rem 0;
+}
+
+.heroPostReadMore {
+  width: max-content;
+  background-color: var(--color-blue-medium);
+  border-radius: 0.312rem;
+  color: var(--color-white);
+  font-family: 'Ubunty', sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  text-align: center;
+  padding: 0.75rem 1.75rem;
+  transition: background-color 300ms, transform 300ms;
+}
+
+.heroPostReadMore:hover {
+  background-color: var(--color-blue-dark);
+  transform: translateY(-0.312rem);
+}

@@ -1,10 +1,12 @@
+import React from 'react';
+
 import EmailImg from '../../public/assets/icons/email.svg';
 import LinkedinImg from '../../public/assets/icons/linkedin.svg';
 import GithubImg from '../../public/assets/icons/github.svg';
 
 import styles from './styles.module.css'
 
-const Footer = () => {
+const Footer: React.FC = () => {
   return (
     <footer className={styles.footer}>
       <div className={styles.footerContent}>
