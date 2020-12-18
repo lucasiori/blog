@@ -1,0 +1,63 @@
+.footer {
+  width: 100%;
+  background: var(--color-blue-dark);
+  padding: 25px 30px;
+}
+
+.footerContent {
+  max-width: 1280px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 auto;
+}
+
+.logo {
+  width: 280px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-black);
+  margin-right: auto;
+}
+
+.logo span {
+  font-family: 'Ubuntu';
+  color: var(--color-white);
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.message {
+  margin: 0 30px;
+}
+
+.message strong {
+  font-family: 'Ubuntu';
+  color: var(--color-white);
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.message strong strong {
+  color: var(--color-yellow);
+}
+
+.socialNetworks {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.socialNetworks a {
+  transition: all 300ms;
+}
+
+.socialNetworks a + a {
+  margin-left: 15px;
+}
+
+.socialNetworks a:hover {
+  transform: translateY(-5px);
+}

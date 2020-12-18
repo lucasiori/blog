@@ -1,0 +1,49 @@
+@tailwind base;
+
+/* Write your own custom base styles here */
+
+/* Start purging... */
+@tailwind components;
+/* Stop purging. */
+
+/* Write you own custom component styles here */
+
+/* Start purging... */
+@tailwind utilities;
+/* Stop purging. */
+
+/* Your own custom utilities */
+
+:root {
+  --color-blue-light: #4DA3FF;
+  --color-blue-medium: #3396FF;
+  --color-blue-dark: #0056B3;
+  --color-yellow: #F6FA31;
+  --color-black: #000;
+  --color-white: #FFF;
+  --color-font-text: #4C4C4C;
+  --color-font-header: #222;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+}
+
+body, input {
+  font: 16px 'Source Sans Pro', serif;
+}
+
+h1, h2, h3, h4, h5, h6, button, strong {
+  font-family: 'Ubuntu', sans-serif;
+}
+
+button {
+  cursor: pointer;
+}
+
+ul {
+  list-style: none;
+}
