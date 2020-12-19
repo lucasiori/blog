@@ -23,6 +23,9 @@
   --color-white: #FFF;
   --color-font-text: #4C4C4C;
   --color-font-header: #222;
+  --color-orange-html: #FC7941;
+  --color-blue-css: #19AAF1;
+  --color-yellow-javascript: #FFDE57;
 }
 
 * {
@@ -48,4 +51,16 @@ button {
 
 ul {
   list-style: none;
+}
+
+body::-webkit-scrollbar {
+  width: 0.5rem;
+}
+
+body::-webkit-scrollbar-track {
+  background-color: var(--color-white);
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: var(--color-blue-dark);
 }

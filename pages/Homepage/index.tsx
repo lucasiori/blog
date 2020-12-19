@@ -2,6 +2,7 @@ import React, { useMemo } from 'react';
 
 import HeroPost from '../../components/HeroPost';
 import PostItem from '../../components/PostItem';
+import CategoryItem from '../../components/CategoryItem';
 
 import { HomepageProps as Props } from './types'
 
@@ -27,6 +28,16 @@ const Homepage: React.FC<Props> = ({ posts }) => {
           ))}
         </section>
       )}
+
+      <section className={styles.homepageCategoriesList}>
+        <h2>Categorias</h2>
+
+        <div>
+          <CategoryItem categoryName="html" />
+          <CategoryItem categoryName="css" />
+          <CategoryItem categoryName="javascript" />
+        </div>
+      </section>
     </div>
   )
 }

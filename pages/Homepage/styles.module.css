@@ -12,3 +12,25 @@
   flex-wrap: wrap;
   margin: 2.5rem -0.625rem -0.625rem;
 }
+
+.homepageCategoriesList {
+  display: flex;
+  flex-direction: column;
+  margin-top: 3.75rem;
+}
+
+.homepageCategoriesList h2 {
+  color: var(--color-font-header);
+  font-size: 3rem;
+  line-height: 3.5rem;
+  font-weight: 700;
+  text-align: center;
+}
+
+.homepageCategoriesList div {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 1.875rem -0.625rem -0.625rem;
+}

@@ -8,11 +8,13 @@
 
 .heroPostImage {
   width: 50%;
+  border-radius: 0.312rem;
 }
 
 .heroPostImage img {
   width: 100%;
   height: 100%;
+  border-radius: inherit;
   object-fit: cover;
 }
 
@@ -39,6 +41,7 @@
  color: var(--color-font-header);
  font-size: 2.25rem;
  line-height: 2.75rem; 
+ font-weight: 700;
  margin-top: 0.25rem;
 }
 
