@@ -1,6 +1,6 @@
-import Author from './author'
+import Author from './Author'
 
-type PostType = {
+export default interface Post {
   slug: string;
   title: string;
   date: string;
@@ -13,5 +13,3 @@ type PostType = {
   content: string;
   category: string;
 }
-
-export default PostType

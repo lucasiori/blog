@@ -1,8 +1,9 @@
 .container {
   width: 100%;
-  max-width: 80rem;
+  max-width: 82.5rem;
   display: flex;
   flex-direction: column;
+  padding: 0 1.25rem;
   margin: 3.125rem auto 0;
 }
 
@@ -27,7 +28,7 @@
   text-align: center;
 }
 
-.categoriesList div {
+.categoriesList > div {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;

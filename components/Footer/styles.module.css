@@ -2,7 +2,7 @@
   width: 100%;
   background: var(--color-blue-dark);
   padding: 1.56rem 1.87rem;
-  margin-top: 3.75rem;
+  margin-top: auto;
 }
 
 .footerContent {

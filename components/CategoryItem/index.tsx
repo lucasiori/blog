@@ -1,20 +1,20 @@
 import React from 'react';
-
-import getCategoryIcon from '../../utils/getCategoryIcon';
+import Link from 'next/link'
 
 import { CategoryItemProps as Props } from './types';
 
 import styles from './styles.module.css';
 
-const CategoryItem: React.FC<Props> = ({ categoryName }) => {
+const CategoryItem: React.FC<Props> = ({ category }) => {
   return (
-    <a 
-      href={`categories/${categoryName}`}
-      className={styles.categoryItem}
-      data-category-name={categoryName}
-    >
-      {getCategoryIcon(categoryName)}
-    </a>
+    <Link href={category.slug}>
+      <div
+        className={styles.categoryItem}
+        data-category-title={category.title.toLowerCase()}
+      >
+        <img src={category.badgeIcon} alt={category.title} />
+      </div>
+    </Link>
   )
 }
 

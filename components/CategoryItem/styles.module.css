@@ -12,18 +12,19 @@
   margin: 0.625rem;
   text-transform: none;
   overflow: hidden;
+  cursor: pointer;
   transition: transform 300ms;
 }
 
-.categoryItem[data-category-name="html"] {
+.categoryItem[data-category-title="html"] {
   background-color: var(--color-orange-html);
 }
 
-.categoryItem[data-category-name="css"] {
+.categoryItem[data-category-title="css"] {
   background-color: var(--color-blue-css);
 }
 
-.categoryItem[data-category-name="javascript"] {
+.categoryItem[data-category-title="javascript"] {
   background-color: var(--color-yellow-javascript);
 }
 
@@ -47,7 +48,7 @@
 }
 
 .categoryItem::after {
-  content: attr(data-category-name);
+  content: attr(data-category-title);
   position: absolute;
   width: 100%;
   height: 100%;
@@ -65,12 +66,12 @@
   transition: transform 1.5s linear;
 }
 
-.categoryItem[data-category-name="html"]::after,
-.categoryItem[data-category-name="css"]::after  {
+.categoryItem[data-category-title="html"]::after,
+.categoryItem[data-category-title="css"]::after  {
   font-size: 4rem;
 }
 
-.categoryItem[data-category-name="javascript"]::after {
+.categoryItem[data-category-title="javascript"]::after {
   font-size: 2.625rem;
 }
 

@@ -1,39 +1,31 @@
-import Homepage from './Homepage';
+import React from 'react';
+import { getAllCategories, getAllPosts } from '../lib/api';
 
-import Layout from '../components/layout'
-import { getAllPosts } from '../lib/api'
-import Head from 'next/head'
-import Post from '../types/post'
+import Homepage from './home';
 
-type Props = {
-  allPosts: Post[]
+import Category from '../types/Category';
+import Post from '../types/Post';
+
+interface Props {
+  categories: Category[];
+  posts: Post[];
 }
 
-const Index: React.FC<Props> = ({ allPosts }: Props) => {
-  return (
-    <Layout>
-      <Head>
-        <title>Lucas Iori Blog</title>
-      </Head>
-      <Homepage posts={allPosts} />
-    </Layout>
-  )
+const Index: React.FC<Props> = ({ categories, posts }) => {
+  return <Homepage categories={categories} posts={posts} />
+}
+
+export const getStaticProps = async () => {
+  const categories = getAllCategories();
+
+  const posts = getAllPosts(9);
+
+  return {
+    props: { 
+      categories,
+      posts
+    },
+  };
 }
 
 export default Index
-
-export const getStaticProps = async () => {
-  const allPosts = getAllPosts([
-    'title',
-    'date',
-    'slug',
-    'author',
-    'coverImage',
-    'excerpt',
-    'category'
-  ])
-
-  return {
-    props: { allPosts },
-  }
-}

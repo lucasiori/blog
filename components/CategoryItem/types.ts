@@ -1,3 +1,5 @@
+import Category from '../../types/Category';
+
 export interface CategoryItemProps {
-  categoryName: 'html' | 'css' | 'javascript';
+  category: Category;
 }
