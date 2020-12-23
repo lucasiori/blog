@@ -1,6 +1,6 @@
-import React from 'react';
+import React from 'react'
 
-import styles from './styles.module.css';
+import styles from './styles.module.css'
 
 const Header: React.FC = () => {
   return (
@@ -12,9 +12,15 @@ const Header: React.FC = () => {
 
         <nav className={styles.navMenu}>
           <ul className={styles.menu}>
-            <li className={styles.activeMenu}><a href="#">home</a></li>
-            <li><a href="#">categorias</a></li>
-            <li><a href="#">sobre mim</a></li>
+            <li className={styles.activeMenu}>
+              <a href="#">home</a>
+            </li>
+            <li>
+              <a href="#">categorias</a>
+            </li>
+            <li>
+              <a href="#">sobre mim</a>
+            </li>
           </ul>
         </nav>
       </div>
@@ -22,4 +28,4 @@ const Header: React.FC = () => {
   )
 }
 
-export default Header;
+export default Header

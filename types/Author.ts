@@ -1,4 +1,4 @@
 export default interface Author {
-  name: string;
-  picture: string;
+  name: string
+  picture: string
 }

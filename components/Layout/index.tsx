@@ -1,11 +1,11 @@
-import React from 'react';
-import Head from 'next/head';
+import React from 'react'
+import Head from 'next/head'
 
-import Header from '../Header';
+import Header from '../Header'
 import Footer from '../Footer'
 import Meta from '../Meta'
 
-import { LayoutProps as Props } from './types';
+import { LayoutProps as Props } from './types'
 
 const Layout: React.FC<Props> = ({ pageTitle, children }) => {
   return (
@@ -22,4 +22,4 @@ const Layout: React.FC<Props> = ({ pageTitle, children }) => {
   )
 }
 
-export default Layout;
+export default Layout

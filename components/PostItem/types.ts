@@ -1,5 +1,5 @@
-import Post from '../../types/post';
+import Post from '../../types/Post'
 
 export interface PostItemProps {
-  post: Post;
+  post: Post
 }

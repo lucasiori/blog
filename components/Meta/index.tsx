@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 import Head from 'next/head'
 import { CMS_NAME, HOME_OG_IMAGE_URL } from '../../lib/constants'
 
@@ -39,9 +39,12 @@ const Meta: React.FC = () => {
       />
       <meta property="og:image" content={HOME_OG_IMAGE_URL} />
 
-      <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400&family=Ubuntu:wght@500;700&display=swap" rel="stylesheet"></link>
+      <link
+        href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400&family=Ubuntu:wght@500;700&display=swap"
+        rel="stylesheet"
+      ></link>
     </Head>
   )
 }
 
-export default Meta;
+export default Meta

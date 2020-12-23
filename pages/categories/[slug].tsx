@@ -1,36 +1,36 @@
-import React, { useMemo } from 'react';
+import React, { useMemo } from 'react'
 import { useRouter } from 'next/router'
-import { getAllCategories, getAllPosts, getPostsByCategory } from '../../lib/api'
+import { getAllCategories, getPostsByCategory } from '../../lib/api'
 
 import Layout from '../../components/Layout'
 import HeroPost from '../../components/HeroPost'
 import PostItem from '../../components/PostItem'
 import CategoryItem from '../../components/CategoryItem'
 
-import CategoryProps from '../../types/Category';
-import PostProps from '../../types/Post';
-import { 
+import CategoryProps from '../../types/Category'
+import PostProps from '../../types/Post'
+import {
   CategoriesProps as Props,
   CategoriesParamsProps as ParamsProps
 } from './types'
 
-import styles from './styles.module.css';
+import styles from './styles.module.css'
 
 const Category: React.FC<Props> = ({ categories, posts }) => {
-  const router = useRouter();
+  const router = useRouter()
   const { slug } = router.query
 
   const heroPost = useMemo((): PostProps => {
-    return posts[0];
-  }, [posts]);
+    return posts[0]
+  }, [posts])
 
   const listPosts = useMemo((): PostProps[] => {
-    return posts.filter((_, index) => index !== 0);
-  }, [posts]);
+    return posts.filter((_, index) => index !== 0)
+  }, [posts])
 
   const currentCategory = useMemo((): CategoryProps | undefined => {
-    return categories.find((category) => category.id === slug);
-  }, [categories]);
+    return categories.find(category => category.id === slug)
+  }, [categories])
 
   if (!currentCategory) {
     // TODO - Show error page
@@ -48,7 +48,7 @@ const Category: React.FC<Props> = ({ categories, posts }) => {
 
         {listPosts.length > 0 && (
           <section className={styles.postsList}>
-            {listPosts.map((post) => (
+            {listPosts.map(post => (
               <PostItem key={post.slug} post={post} />
             ))}
           </section>
@@ -59,10 +59,10 @@ const Category: React.FC<Props> = ({ categories, posts }) => {
 
           <div>
             {categories
-              .filter((category) => category.id !== currentCategory.id)
-              .map((category) => (
+              .filter(category => category.id !== currentCategory.id)
+              .map(category => (
                 <CategoryItem key={category.title} category={category} />
-            ))}
+              ))}
           </div>
         </section>
       </div>
@@ -71,33 +71,31 @@ const Category: React.FC<Props> = ({ categories, posts }) => {
 }
 
 export async function getStaticProps({ params }: ParamsProps) {
-  const { slug } = params;
+  const { slug } = params
 
-  const categories = getAllCategories();
-  const currentCategory = categories.find((category) => category.id === slug);
+  const categories = getAllCategories()
+  const currentCategory = categories.find(category => category.id === slug)
 
-  const posts = currentCategory ? getPostsByCategory(currentCategory.id) : [];
+  const posts = currentCategory ? getPostsByCategory(currentCategory.id) : []
 
   return {
-    props: { 
+    props: {
       categories,
       posts
-    },
-  };
+    }
+  }
 }
 
 export async function getStaticPaths() {
-  const categories = getAllCategories();
+  const categories = getAllCategories()
 
   return {
-    paths: categories.map((category) => {
+    paths: categories.map(category => {
       return {
         params: { slug: category.id }
       }
     }),
-    fallback: false,
+    fallback: false
   }
 }
-
-
 export default Category

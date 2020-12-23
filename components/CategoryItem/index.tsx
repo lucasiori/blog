@@ -1,9 +1,9 @@
-import React from 'react';
+import React from 'react'
 import Link from 'next/link'
 
-import { CategoryItemProps as Props } from './types';
+import { CategoryItemProps as Props } from './types'
 
-import styles from './styles.module.css';
+import styles from './styles.module.css'
 
 const CategoryItem: React.FC<Props> = ({ category }) => {
   return (
@@ -18,4 +18,4 @@ const CategoryItem: React.FC<Props> = ({ category }) => {
   )
 }
 
-export default CategoryItem;
+export default CategoryItem

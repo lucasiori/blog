@@ -1,14 +1,14 @@
-import React from 'react';
+import React from 'react'
 
 import { HeroPostProps as Props } from './types'
 
-import styles from './styles.module.css';
+import styles from './styles.module.css'
 
 const HeroPost: React.FC<Props> = ({ post }) => {
   return (
     <section className={styles.heroPost}>
       <div className={styles.heroPostImage}>
-        <img src={post.coverImage} alt="imagem"/>
+        <img src={post.coverImage} alt="imagem" />
       </div>
 
       <div className={styles.heroPostData}>

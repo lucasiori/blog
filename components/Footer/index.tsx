@@ -1,8 +1,8 @@
-import React from 'react';
+import React from 'react'
 
-import EmailIcon from '../../public/assets/icons/email.svg';
-import LinkedinIcon from '../../public/assets/icons/linkedin.svg';
-import GithubIcon from '../../public/assets/icons/github.svg';
+import EmailIcon from '../../public/assets/icons/email.svg'
+import LinkedinIcon from '../../public/assets/icons/linkedin.svg'
+import GithubIcon from '../../public/assets/icons/github.svg'
 
 import styles from './styles.module.css'
 
@@ -40,4 +40,4 @@ const Footer: React.FC = () => {
   )
 }
 
-export default Footer;
+export default Footer

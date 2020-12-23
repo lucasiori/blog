@@ -1,31 +1,46 @@
-import fs from 'fs';
-import { join } from 'path';
-import matter from 'gray-matter';
+import fs from 'fs'
+import { join } from 'path'
+import matter from 'gray-matter'
 
-interface Item {
-  [key: string]: string;
+import Category from '../types/Category'
+import Post from '../types/Post'
+
+interface ItemProps {
+  [key: string]: string
 }
 
-const categoriesDirectory = join(process.cwd(), '_categories');
+interface FileContentProps {
+  data: {
+    [key: string]: any
+  }
+  content: string
+}
+
+const categoriesDirectory = join(process.cwd(), '_categories')
 const postsDirectory = join(process.cwd(), '_posts')
 
-export function getSlugs(directory: string) {
-  return fs.readdirSync(directory);
+function getSlugs(directory: string): string[] {
+  return fs.readdirSync(directory)
 }
 
-export function getPostBySlug(slug: string, fields: string[] = []) {
-  const realSlug = slug.replace(/\.md$/, '')
-  const fullPath = join(postsDirectory, `${realSlug}.md`)
+function getFileContent(slug: string, directory: string): FileContentProps {
+  const fullPath = join(directory, `${slug}.md`)
   const fileContents = fs.readFileSync(fullPath, 'utf8')
-  const { data, content } = matter(fileContents)
 
-  const items: Item = {}
+  return matter(fileContents)
+}
 
-  fields.forEach((field) => {
+export function getPostBySlug(slug: string, fields: string[] = []): Post {
+  const realSlug = slug.replace(/\.md$/, '')
+  const { data, content } = getFileContent(realSlug, postsDirectory)
+
+  const items: ItemProps = {}
+
+  fields.forEach(field => {
     if (field === 'slug') {
       items[field] = `/posts/${realSlug}`
     }
-    
+
     if (field === 'content') {
       items[field] = content
     }
@@ -35,41 +50,38 @@ export function getPostBySlug(slug: string, fields: string[] = []) {
     }
   })
 
-  return items
+  return items as Post
 }
 
-export function getAllPosts(limit?: number) {
+export function getAllPosts(limit?: number): Post[] {
   const slugs = getSlugs(postsDirectory)
-  const fields = [
-    'title',
-    'slug',
-    'coverImage',
-    'excerpt',
-    'category'
-  ]
+  const fields = ['title', 'slug', 'coverImage', 'excerpt', 'category']
 
   const posts = slugs
-    .map((slug) => getPostBySlug(slug, fields))
-    .sort((post1, post2) => (post1.date > post2.date ? -1 : 1));
+    .map(slug => getPostBySlug(slug, fields))
+    .sort((post1, post2) => {
+      return (post1.date || '') > (post2.date || '') ? -1 : 1
+    })
 
-  return !limit ? posts : posts.filter((_, index) => index <= limit);
+  return !limit ? posts : posts.filter((_, index) => index <= limit)
 }
 
-export function getPostsByCategory(categoryId: string) {
-  const posts = getAllPosts();
+export function getPostsByCategory(categoryId: string): Post[] {
+  const posts = getAllPosts()
 
-  return posts.filter((post) => post.category === categoryId);
+  return posts.filter(post => post.category === categoryId)
 }
 
-export function getCategoryBySlug(slug: string, fields: string[] = []) {
+export function getCategoryBySlug(
+  slug: string,
+  fields: string[] = []
+): Category {
   const realSlug = slug.replace(/\.md$/, '')
-  const fullPath = join(categoriesDirectory, `${realSlug}.md`)
-  const fileContents = fs.readFileSync(fullPath, 'utf8')
-  const { data } = matter(fileContents)
+  const { data } = getFileContent(realSlug, categoriesDirectory)
 
-  const items: Item = {}
+  const items: ItemProps = {}
 
-  fields.forEach((field) => {
+  fields.forEach(field => {
     if (field === 'slug') {
       items[field] = `/categories/${realSlug}`
     }
@@ -79,10 +91,10 @@ export function getCategoryBySlug(slug: string, fields: string[] = []) {
     }
   })
 
-  return items
+  return items as Category
 }
 
-export function getAllCategories() {
+export function getAllCategories(): Category[] {
   const slugs = getSlugs(categoriesDirectory)
   const categoryFields = [
     'id',
@@ -90,12 +102,14 @@ export function getAllCategories() {
     'slug',
     'badgeIcon',
     'image',
-    'position',
-  ];
+    'position'
+  ]
 
   const categories = slugs
-    .map((slug) => getCategoryBySlug(slug, categoryFields))
-    .sort((category1, category2) => (category1.position > category2.position ? 1 : -1));
+    .map(slug => getCategoryBySlug(slug, categoryFields))
+    .sort((category1, category2) => {
+      return (category1.position || '') > (category2.position || '') ? -1 : 1
+    })
 
-  return categories;
+  return categories
 }

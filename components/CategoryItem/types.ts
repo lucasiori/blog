@@ -1,5 +1,5 @@
-import Category from '../../types/Category';
+import Category from '../../types/Category'
 
 export interface CategoryItemProps {
-  category: Category;
+  category: Category
 }
