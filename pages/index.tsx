@@ -1,15 +1,14 @@
 import React, { useMemo } from 'react'
-import { getAllCategories, getAllPosts } from '../lib/api'
+import { getAllCategories } from '../api/categories'
+import { getAllPosts } from '../api/posts'
 
 import Layout from '../components/Layout'
 import HeroPost from '../components/HeroPost'
 import PostItem from '../components/PostItem'
 import CategoryItem from '../components/CategoryItem'
 
-import {
-  HomepageProps as Props,
-  HomepageStaticProps as StaticProps
-} from './types'
+import { DefaultStaticProps as StaticProps } from '../types'
+import { HomepageProps as Props } from './types'
 
 import ProfileImg from '../public/assets/images/profile.png'
 import HtmlIcon from '../public/assets/icons/html.png'
@@ -150,10 +149,12 @@ const Homepage: React.FC<Props> = ({ categories = [], posts = [] }) => {
   )
 }
 
-export function getStaticProps(): StaticProps {
+export async function getStaticProps(): Promise<StaticProps> {
   const categories = getAllCategories()
 
   const posts = getAllPosts(9)
+
+  console.log(posts)
 
   return {
     props: {

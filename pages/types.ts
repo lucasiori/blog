@@ -1,11 +1,6 @@
-import Category from '../types/Category'
-import Post from '../types/Post'
+import { CategoryProps, PostProps } from '../types'
 
 export interface HomepageProps {
-  posts?: Post[]
-  categories?: Category[]
-}
-
-export interface HomepageStaticProps {
-  props: HomepageProps
+  posts?: PostProps[]
+  categories?: CategoryProps[]
 }

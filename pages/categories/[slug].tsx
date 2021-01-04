@@ -1,18 +1,21 @@
 import React, { useMemo } from 'react'
 import { useRouter } from 'next/router'
-import { getAllCategories, getPostsByCategory } from '../../lib/api'
+import { getAllCategories } from '../../api/categories'
+import { getPostsByCategory } from '../../api/posts'
 
 import Layout from '../../components/Layout'
 import HeroPost from '../../components/HeroPost'
 import PostItem from '../../components/PostItem'
 import CategoryItem from '../../components/CategoryItem'
 
-import CategoryProps from '../../types/Category'
-import PostProps from '../../types/Post'
 import {
-  CategoriesProps as Props,
-  CategoriesParamsProps as ParamsProps
-} from './types'
+  CategoryProps,
+  PostProps,
+  DefaultParamsProps as ParamsProps,
+  DefaultStaticProps as StaticProps,
+  DefaultStaticPaths as StaticPaths
+} from '../../types'
+import { CategoriesProps as Props } from './types'
 
 import styles from './styles.module.css'
 
@@ -70,7 +73,9 @@ const Category: React.FC<Props> = ({ categories, posts }) => {
   )
 }
 
-export async function getStaticProps({ params }: ParamsProps) {
+export async function getStaticProps({
+  params
+}: ParamsProps): Promise<StaticProps> {
   const { slug } = params
 
   const categories = getAllCategories()
@@ -86,7 +91,7 @@ export async function getStaticProps({ params }: ParamsProps) {
   }
 }
 
-export async function getStaticPaths() {
+export async function getStaticPaths(): Promise<StaticPaths> {
   const categories = getAllCategories()
 
   return {
