@@ -1,9 +1,11 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+
 import fs from 'fs'
 import { join } from 'path'
 import matter from 'gray-matter'
 
 interface Item {
-  [key: string]: string
+  [key: string]: any
 }
 
 const categoriesDirectory = join(process.cwd(), '_categories')

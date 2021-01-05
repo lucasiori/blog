@@ -1,9 +1,11 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+
 import fs from 'fs'
 import { join } from 'path'
 import matter from 'gray-matter'
 
 interface Item {
-  [key: string]: string
+  [key: string]: any
 }
 
 const postsDirectory = join(process.cwd(), '_posts')
@@ -25,11 +27,20 @@ export function getPostBySlug(
   const items: Item = {}
 
   if (!allFields && fields.length <= 0) {
-    fields = ['slug', 'title', 'excerpt', 'coverImage', 'date', 'category']
+    fields = [
+      'id',
+      'slug',
+      'title',
+      'excerpt',
+      'coverImage',
+      'date',
+      'category'
+    ]
   }
 
   if (allFields) {
     fields = [
+      'id',
       'slug',
       'title',
       'excerpt',
@@ -60,7 +71,7 @@ export function getPostBySlug(
   return items
 }
 
-export function getAllPosts(limit?: number): Item[] {
+export function getAllPosts(limit?: number, excludePost?: number): Item[] {
   let slugs = getPostSlugs()
 
   if (limit) {
@@ -74,12 +85,17 @@ export function getAllPosts(limit?: number): Item[] {
   const posts = slugs
     .map(slug => getPostBySlug(slug))
     .sort((post1, post2) => (post1.date > post2.date ? -1 : 1))
+    .filter(post => post.id !== excludePost)
 
   return posts
 }
 
-export function getPostsByCategory(categoryId: string, limit?: number): Item[] {
-  const posts = getAllPosts(limit)
+export function getPostsByCategory(
+  categoryId: string,
+  limit?: number,
+  excludePost?: number
+): Item[] {
+  const posts = getAllPosts(limit, excludePost)
 
-  return posts.filter(post => post.category === categoryId)
+  return posts.filter(post => post.category.id === categoryId)
 }

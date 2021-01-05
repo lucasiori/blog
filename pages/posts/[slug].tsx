@@ -1,5 +1,5 @@
 import React from 'react'
-import { getPostBySlug, getAllPosts } from '../../api/posts'
+import { getPostBySlug, getAllPosts, getPostsByCategory } from '../../api/posts'
 import Head from 'next/head'
 import markdownToHtml from '../../lib/markdownToHtml'
 
@@ -67,11 +67,9 @@ export async function getStaticProps({
   params
 }: ParamsProps): Promise<StaticProps> {
   const post = getPostBySlug(params.slug, [], true)
-  const morePosts = getAllPosts(4)
+  const morePosts = getPostsByCategory(post.category.id, 4, post.id)
 
   const content = await markdownToHtml(post.content)
-
-  console.log(morePosts)
 
   return {
     props: {
@@ -86,8 +84,6 @@ export async function getStaticProps({
 
 export async function getStaticPaths(): Promise<StaticPaths> {
   const posts = getAllPosts()
-
-  console.log(posts)
 
   return {
     paths: posts.map(posts => {

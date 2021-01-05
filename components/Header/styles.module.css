@@ -43,22 +43,104 @@
 }
 
 .menu li a {
+  position: relative;
+  display: block;
   font-family: 'Ubuntu';
   color: var(--color-white);
   font-size: 1.125rem;
   font-weight: 700;
-  transition: color 0.3s;
+  transition: transform 0.3s;
 }
 
-.menu li.activeMenu {
+.menu li a:hover {
+  transform: translateY(-0.187rem);
+}
+
+.menu li a::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 0.25rem;
+  display: block;
   background: var(--color-yellow);
-  padding: 0.625rem 1.25rem;
+  top: calc(50% - 0.125rem);
+  opacity: 0;
+  transition: top 0.3s, opacity 0.3s;
 }
 
-.menu li.activeMenu a {
-  color: var(--color-blue-dark)
+.menu li a:hover::after {
+  top: 110%;
+  opacity: 1;
 }
 
-.menu li:not(.activeMenu) a:hover {
-  color: var(--color-blue-dark);
+.mobileNavMenu {
+  position: relative;
+  display: none;
+  align-items: flex-end;
+  justify-content: flex-end;
+  padding: 0.625rem;
+}
+
+.burguerMenu {
+  position: relative;
+  width: 2.25rem;
+  height: 1.725rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: none;
+  border: 0;
+  z-index: 2;
+}
+
+.burguerMenu span {
+  width: 100%;
+  height: 0.312rem;
+  display: block;
+  background-color: var(--color-yellow);
+  transition: background 0.3s;
+}
+
+.mobileNavMenu[aria-expanded="true"] .burguerMenu span {
+  background-color: var(--color-blue-light)
+}
+
+.mobileNavMenu .mobileMenu {
+  position: absolute;
+  width: 0;
+  height: 0;
+  background: var(--color-yellow);
+  border-radius: 0.312rem;
+  padding: 0;
+  top: 0;
+  right: 0;
+  overflow: hidden;
+  z-index: 1;
+  transition: width 0.3s, height 0.3s, padding 0.3s;
+}
+
+.mobileNavMenu[aria-expanded="true"] .mobileMenu {
+  width: 12rem;
+  height: 8.725rem;
+  padding: 1.25rem 1.25rem;
+}
+
+.mobileNavMenu .mobileMenu li a {
+  color: var(--color-font-text);
+  font-size: 1.125rem;
+  font-weight: bold;
+}
+
+.mobileNavMenu .mobileMenu li + li {
+  margin-top: 0.725rem;
+}
+
+@media only screen and (max-width: 767px) {
+  .navMenu {
+    display: none;
+  }
+
+  .mobileNavMenu {
+    display: flex;
+  }
 }

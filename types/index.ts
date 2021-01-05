@@ -15,6 +15,7 @@ export interface CategoryProps {
 }
 
 export interface PostProps {
+  id: number
   slug: string
   title: string
   excerpt: string
