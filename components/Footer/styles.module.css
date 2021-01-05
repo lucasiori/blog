@@ -62,3 +62,8 @@
 .socialNetworks a:hover {
   transform: translateY(-0.312rem);
 }
+
+.socialNetworks img {
+  width: 1.875rem;
+  height: 1.875rem;
+}

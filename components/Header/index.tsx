@@ -1,4 +1,5 @@
 import React from 'react'
+import Link from 'next/link'
 
 import styles from './styles.module.css'
 
@@ -13,13 +14,13 @@ const Header: React.FC = () => {
         <nav className={styles.navMenu}>
           <ul className={styles.menu}>
             <li className={styles.activeMenu}>
-              <a href="#">home</a>
+              <Link href="/">home</Link>
             </li>
             <li>
-              <a href="#">categorias</a>
+              <Link href="/#categories">categorias</Link>
             </li>
             <li>
-              <a href="#">sobre mim</a>
+              <Link href="/#about-me">sobre mim</Link>
             </li>
           </ul>
         </nav>

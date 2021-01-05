@@ -1,96 +1,102 @@
-import { useRouter } from 'next/router'
-import ErrorPage from 'next/error'
-import PostBody from '../../components/post-body'
-import PostHeader from '../../components/post-header'
-import Layout from '../../components/layout'
-import { getPostBySlug, getAllPosts } from '../../lib/api'
-import PostTitle from '../../components/post-title'
+import React from 'react'
+import { getPostBySlug, getAllPosts } from '../../api/posts'
 import Head from 'next/head'
-import { CMS_NAME } from '../../lib/constants'
 import markdownToHtml from '../../lib/markdownToHtml'
-import PostType from '../../types/post'
 
-type Props = {
-  post: PostType
-  morePosts: PostType[]
-  preview?: boolean
-}
+import Layout from '../../components/Layout'
+import PostHeader from '../../components/PostHeader'
 
-const Post = ({ post, morePosts, preview }: Props) => {
-  const router = useRouter()
-  if (!router.isFallback && !post?.slug) {
-    return <ErrorPage statusCode={404} />
+import {
+  DefaultParamsProps as ParamsProps,
+  DefaultStaticProps as StaticProps,
+  DefaultStaticPaths as StaticPaths
+} from '../../types'
+import { PostsProps as Props } from './types'
+
+import styles from './styles.module.css'
+import PostItem from '../../components/PostItem'
+
+const Post: React.FC<Props> = ({ post, morePosts }) => {
+  // const router = useRouter()
+  // if (!router.isFallback && !post?.slug) {
+  //   return <ErrorPage statusCode={404} />
+  // }
+
+  if (!post) {
+    // TO-DO - Show Shimmer Effect
+    return <></>
   }
+
   return (
-    <Layout preview={preview}>
-      {/* <Container>
-        {router.isFallback ? (
-          <PostTitle>Loading…</PostTitle>
-        ) : (
-          <>
-            <article className="mb-32">
-              <Head>
-                <title>
-                  {post.title} | Next.js Blog Example with {CMS_NAME}
-                </title>
-                <meta property="og:image" content={post.ogImage.url} />
-              </Head>
-              <PostHeader
-                title={post.title}
-                coverImage={post.coverImage}
-                date={post.date}
-                author={post.author}
-              />
-              <PostBody content={post.content} />
-            </article>
-          </>
+    <Layout pageTitle={`Lucas Iori - ${post.title || ''}`}>
+      <article className={styles.postContainer}>
+        <Head>
+          <title>{post.title}</title>
+
+          {post && post.ogImage && post.ogImage.url && (
+            <meta property="og:image" content={post.ogImage.url} />
+          )}
+        </Head>
+
+        <PostHeader post={post} />
+
+        <section
+          className={styles.postBody}
+          dangerouslySetInnerHTML={{ __html: post.content }}
+        ></section>
+
+        {morePosts && morePosts.length > 0 && (
+          <section className={styles.morePosts}>
+            <h2>Outros Artigos</h2>
+
+            <div>
+              {morePosts.map(morePost => (
+                <PostItem key={morePost.title} post={morePost} />
+              ))}
+            </div>
+          </section>
         )}
-      </Container> */}
+      </article>
     </Layout>
   )
 }
 
 export default Post
 
-type Params = {
-  params: {
-    slug: string
-  }
-}
+export async function getStaticProps({
+  params
+}: ParamsProps): Promise<StaticProps> {
+  const post = getPostBySlug(params.slug, [], true)
+  const morePosts = getAllPosts(4)
 
-export async function getStaticProps({ params }: Params) {
-  const post = getPostBySlug(params.slug, [
-    'title',
-    'date',
-    'slug',
-    'author',
-    'content',
-    'ogImage',
-    'coverImage',
-  ])
-  const content = await markdownToHtml(post.content || '')
+  const content = await markdownToHtml(post.content)
+
+  console.log(morePosts)
 
   return {
     props: {
       post: {
         ...post,
-        content,
+        content
       },
-    },
+      morePosts
+    }
   }
 }
 
-export async function getStaticPaths() {
-  const posts = getAllPosts(['slug'])
+export async function getStaticPaths(): Promise<StaticPaths> {
+  const posts = getAllPosts()
+
+  console.log(posts)
 
   return {
-    paths: posts.map((posts) => {
+    paths: posts.map(posts => {
       return {
         params: {
-          slug: posts.slug,
-        },
+          slug: posts.slug.replace('/posts/', '')
+        }
       }
     }),
-    fallback: false,
+    fallback: false
   }
 }

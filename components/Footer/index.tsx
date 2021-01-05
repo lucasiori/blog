@@ -1,8 +1,8 @@
 import React from 'react'
 
-import EmailIcon from '../../public/assets/icons/email.svg'
-import LinkedinIcon from '../../public/assets/icons/linkedin.svg'
-import GithubIcon from '../../public/assets/icons/github.svg'
+import emailIcon from '../../public/assets/icons/email.png'
+import linkedinIcon from '../../public/assets/icons/linkedin.png'
+import githubIcon from '../../public/assets/icons/github.png'
 
 import styles from './styles.module.css'
 
@@ -24,15 +24,15 @@ const Footer: React.FC = () => {
 
         <div className={styles.socialNetworks}>
           <a href="mailto:lucasferiori@gmail.com">
-            <EmailIcon />
+            <img src={emailIcon} alt="E-mail" />
           </a>
 
           <a href="https://www.linkedin.com/in/lucas-iori/">
-            <LinkedinIcon />
+            <img src={linkedinIcon} alt="Linkedin" />
           </a>
 
           <a href="https://github.com/lucasiori">
-            <GithubIcon />
+            <img src={githubIcon} alt="Github" />
           </a>
         </div>
       </div>

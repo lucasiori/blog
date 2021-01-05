@@ -8,7 +8,7 @@ const HeroPost: React.FC<Props> = ({ post }) => {
   return (
     <section className={styles.heroPost}>
       <div className={styles.heroPostImage}>
-        <img src={post.coverImage} alt="imagem" />
+        <img src={post.coverImage} alt={post.title} />
       </div>
 
       <div className={styles.heroPostData}>

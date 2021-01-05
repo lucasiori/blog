@@ -17,12 +17,16 @@ export interface CategoryProps {
 export interface PostProps {
   slug: string
   title: string
-  date: string
-  coverImage: string
-  author: AuthorProps
   excerpt: string
   content: string
-  category: string
+  date: string
+  coverImage: string
+  readTime: number
+  author: AuthorProps
+  category: Pick<CategoryProps, 'id' | 'title' | 'badgeIcon'>
+  ogImage: {
+    url: string
+  }
 }
 
 export interface DefaultParamsProps {

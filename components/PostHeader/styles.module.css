@@ -1,0 +1,83 @@
+.postHeader {
+  display: flex;
+  flex-direction: column;
+}
+
+.postHeaderTitle {
+  color: --color-font-header;
+  font-size: 2.875rem;
+  line-height: 2.375rem;
+  margin-bottom: 2rem;
+}
+
+.postHeader > div {
+  height: 18.75rem;
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  gap: 1.125rem;
+}
+
+.postHeaderImage {
+  width: 60%;
+  border-radius: 0.312rem;
+}
+
+.postHeaderImage img {
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  object-fit: cover;
+}
+
+.postHeaderData {
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 1.25rem 0;
+}
+
+.postHeaderInformation {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.postHeaderInformation + .postHeaderInformation {
+  margin-top: 1.25rem;
+}
+
+.postHeaderInformation img {
+  border-radius: 0.312rem;
+  margin-right: 1.25rem;
+}
+
+.postHeaderAuthor img,
+.postHeaderCategory img {
+  width: 3.75rem;
+  height: 3.75rem;
+}
+
+.postHeaderPublishDate img,
+.postHeaderReadTime img,
+.postHeaderViews img {
+  width: 2.5rem;
+  height: 2.5rem;
+}
+
+.postHeaderInformation h4 {
+  font-family: 'Source Sans Pro', serif;
+  color: --color-font-header;
+  font-size: 1.5rem;
+  font-weight: 500;
+  line-height: 1.75rem;
+}
+
+.postHeaderInformation h5 {
+  font-family: 'Source Sans Pro', serif;
+  color: --color-font-header;
+  font-size: 1.25rem;
+  font-weight: 500;
+  line-height: 1.5rem;
+}

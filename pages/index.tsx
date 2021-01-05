@@ -44,7 +44,7 @@ const Homepage: React.FC<Props> = ({ categories = [], posts = [] }) => {
           </section>
         )}
 
-        <section className={styles.categoriesList}>
+        <section id="categories" className={styles.categoriesList}>
           <h2>Categorias</h2>
 
           <div>
@@ -54,7 +54,7 @@ const Homepage: React.FC<Props> = ({ categories = [], posts = [] }) => {
           </div>
         </section>
 
-        <section className={styles.aboutMe}>
+        <section id="about-me" className={styles.aboutMe}>
           <h2>Sobre Mim</h2>
 
           <div className={styles.aboutMeContent}>
@@ -87,7 +87,7 @@ const Homepage: React.FC<Props> = ({ categories = [], posts = [] }) => {
                   época que terminei a escola e como muitas pessoas, fiquei sem
                   saber como iria desenvolver minha carreira profissional.
                   Então, juntando minhas experiências e tudo que eu estudei,
-                  espero poder mostrar um caminho alternativo pra quem esta
+                  espero poder mostrar um caminho alternativo para quem esta
                   passando pela mesma situação ou que já deseja entrar nesse
                   vasto e maravilhoso mundo da tecnologia.
                 </p>
@@ -153,8 +153,6 @@ export async function getStaticProps(): Promise<StaticProps> {
   const categories = getAllCategories()
 
   const posts = getAllPosts(9)
-
-  console.log(posts)
 
   return {
     props: {

@@ -13,7 +13,7 @@ const PostItem: React.FC<Props> = ({ post }) => {
 
       <h3 className={styles.postItemTitle}>{post.title}</h3>
 
-      <h5 className={styles.postItemCategory}>{post.category}</h5>
+      <h5 className={styles.postItemCategory}>{post.category.title}</h5>
     </a>
   )
 }

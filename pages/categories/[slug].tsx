@@ -97,7 +97,7 @@ export async function getStaticPaths(): Promise<StaticPaths> {
   return {
     paths: categories.map(category => {
       return {
-        params: { slug: category.id }
+        params: { slug: category.slug.replace('/categories/', '') }
       }
     }),
     fallback: false

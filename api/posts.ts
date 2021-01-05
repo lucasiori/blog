@@ -12,7 +12,11 @@ export function getPostSlugs(): string[] {
   return fs.readdirSync(postsDirectory)
 }
 
-export function getPostBySlug(slug: string, fields: string[] = []): Item {
+export function getPostBySlug(
+  slug: string,
+  fields: string[] = [],
+  allFields = false
+): Item {
   const realSlug = slug.replace(/\.md$/, '')
   const fullPath = join(postsDirectory, `${realSlug}.md`)
   const fileContents = fs.readFileSync(fullPath, 'utf8')
@@ -20,8 +24,23 @@ export function getPostBySlug(slug: string, fields: string[] = []): Item {
 
   const items: Item = {}
 
-  if (fields.length <= 0) {
-    fields = ['slug', 'title', 'excerpt', 'category', 'date', 'coverImage']
+  if (!allFields && fields.length <= 0) {
+    fields = ['slug', 'title', 'excerpt', 'coverImage', 'date', 'category']
+  }
+
+  if (allFields) {
+    fields = [
+      'slug',
+      'title',
+      'excerpt',
+      'content',
+      'coverImage',
+      'date',
+      'readTime',
+      'category',
+      'author',
+      'ogImage'
+    ]
   }
 
   fields.forEach(field => {
