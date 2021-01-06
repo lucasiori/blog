@@ -10,6 +10,7 @@ const CategoryItem: React.FC<Props> = ({ category }) => {
     <Link href={category.slug}>
       <div
         className={styles.categoryItem}
+        title={category.title}
         data-category-title={category.title.toLowerCase()}
       >
         <img src={category.badgeIcon} alt={category.title} />

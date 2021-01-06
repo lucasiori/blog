@@ -40,7 +40,7 @@
 .heroPostTitle {
  color: var(--color-font-header);
  font-size: 2.25rem;
- line-height: 2.75rem; 
+ line-height: 2.75rem;
  font-weight: 700;
  margin-top: 0.25rem;
 }
@@ -67,4 +67,18 @@
 .heroPostReadMore:hover {
   background-color: var(--color-blue-dark);
   transform: translateY(-0.312rem);
+}
+
+@media only screen and (max-width: 1024px) {
+  .heroPost {
+    height: max-content;
+  }
+
+  .heroPostImage {
+    display: none;
+  }
+
+  .heroPostData {
+    width: 100%;
+  }
 }

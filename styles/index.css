@@ -5,11 +5,24 @@
   --color-yellow: #F6FA31;
   --color-black: #000;
   --color-white: #FFF;
+  --color-gray: #CCC;
   --color-font-text: #4C4C4C;
   --color-font-header: #222;
   --color-orange-html: #FC7941;
   --color-blue-css: #19AAF1;
   --color-yellow-javascript: #FFDE57;
+}
+
+@media only screen and (min-width: 577px) and (max-width: 1024px) {
+  :root {
+    font-size: 15px;
+  }
+}
+
+@media only screen and (max-width: 577px) {
+  :root {
+    font-size: 14px;
+  }
 }
 
 * {
