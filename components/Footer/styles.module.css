@@ -67,3 +67,23 @@
   width: 1.875rem;
   height: 1.875rem;
 }
+
+@media only screen and (max-width: 767px) {
+  .footerContent {
+    flex-direction: column;
+  }
+
+  .logo {
+    margin: 0;
+  }
+
+  .message {
+    margin: 1.25rem 0 0;
+    order: 3;
+  }
+
+  .socialNetworks {
+    margin: 1.25rem 0 0;
+    order: 2;
+  }
+}
