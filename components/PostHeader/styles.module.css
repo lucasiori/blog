@@ -45,7 +45,7 @@
 }
 
 .postHeaderInformation + .postHeaderInformation {
-  margin-top: 1.25rem;
+  margin: 1.25rem 0 0;
 }
 
 .postHeaderInformation img {
@@ -80,4 +80,40 @@
   font-size: 1.25rem;
   font-weight: 500;
   line-height: 1.5rem;
+}
+
+@media only screen and (max-width: 1024px) {
+  .postHeader > div {
+    height: max-content
+  }
+
+  .postHeaderImage {
+    display: none;
+  }
+
+  .postHeaderData {
+    width: 100%;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 0.625rem;
+  }
+
+  .postHeaderInformation {
+    width: calc(50% - 1.25rem);
+  }
+}
+
+@media only screen and (max-width: 576px) {
+  .postHeaderInformation {
+    flex-direction: column;
+  }
+
+  .postHeaderInformation:first-child,
+  .postHeaderInformation:nth-child(2) {
+    margin: 0 !important;
+  }
+
+  .postHeaderInformation img {
+    margin: 0 0 0.625rem;
+  }
 }

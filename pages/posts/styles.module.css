@@ -2,6 +2,7 @@
   max-width: 61.25rem;
   display: flex;
   flex-direction: column;
+  padding: 0 1.25rem;
   margin: 3.75rem auto 0;
 }
 
@@ -53,4 +54,10 @@
   flex-wrap: wrap;
   justify-content: center;
   margin: 1.875rem -0.625rem -0.625rem;
+}
+
+@media only screen and (max-width: 1024px) {
+  .morePosts > div {
+    margin: 1.875rem 0 0;
+  }
 }
