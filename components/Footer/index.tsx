@@ -23,15 +23,30 @@ const Footer: React.FC = () => {
         </div>
 
         <div className={styles.socialNetworks}>
-          <a href="mailto:lucasferiori@gmail.com" title="E-mail">
+          <a
+            href="mailto:lucasferiori@gmail.com"
+            title="E-mail"
+            target="_blank"
+            rel="noreferrer"
+          >
             <img src={emailIcon} alt="E-mail" />
           </a>
 
-          <a href="https://www.linkedin.com/in/lucas-iori/" title="Linkedin">
+          <a
+            href="https://www.linkedin.com/in/lucas-iori/"
+            title="Linkedin"
+            target="_blank"
+            rel="noreferrer"
+          >
             <img src={linkedinIcon} alt="Linkedin" />
           </a>
 
-          <a href="https://github.com/lucasiori" title="Github">
+          <a
+            href="https://github.com/lucasiori"
+            title="Github"
+            target="_blank"
+            rel="noreferrer"
+          >
             <img src={githubIcon} alt="Github" />
           </a>
         </div>

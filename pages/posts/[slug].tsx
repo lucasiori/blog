@@ -28,11 +28,9 @@ const Post: React.FC<PostsProps> = ({ post, morePosts }) => {
   }
 
   return (
-    <Layout pageTitle={`Lucas Iori - ${post.title || ''}`}>
+    <Layout pageTitle={`Lucas Iori - ${post.title}`}>
       <article className={styles.postContainer}>
         <Head>
-          <title>{post.title}</title>
-
           {post && post.ogImage && post.ogImage.url && (
             <meta property="og:image" content={post.ogImage.url} />
           )}

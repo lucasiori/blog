@@ -45,7 +45,7 @@ const Category: React.FC<CategoriesProps> = ({ categories, posts }) => {
   }
 
   return (
-    <Layout pageTitle={`Lucas Iori Blog - ${slug}`}>
+    <Layout pageTitle={`Lucas Iori - ${currentCategory.title}`}>
       <section className={styles.hero} data-category-title={slug}>
         <img src={currentCategory.image} alt={currentCategory.title} />
       </section>

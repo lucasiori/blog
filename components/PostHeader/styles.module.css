@@ -4,9 +4,9 @@
 }
 
 .postHeaderTitle {
-  color: --color-font-header;
+  color: var(--color-font-header);
   font-size: 2.875rem;
-  line-height: 2.375rem;
+  line-height: 3.375rem;
   margin-bottom: 2rem;
 }
 

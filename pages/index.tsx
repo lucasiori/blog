@@ -40,7 +40,7 @@ const Homepage: React.FC<HomepageProps> = ({ categories = [], posts = [] }) => {
   }, [posts])
 
   return (
-    <Layout pageTitle="Lucas Iori - Homepage">
+    <Layout pageTitle="Lucas Iori - Home">
       <div className={styles.container}>
         {heroPost && <HeroPost post={heroPost} />}
 

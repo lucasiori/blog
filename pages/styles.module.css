@@ -144,4 +144,8 @@
     column-count: 1;
     column-gap: 0;
   }
+
+  .aboutMe .skills img {
+    height: 3.25rem;
+  }
 }
