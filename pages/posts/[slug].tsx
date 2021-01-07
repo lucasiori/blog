@@ -7,21 +7,21 @@ import Layout from '../../components/Layout'
 import PostHeader from '../../components/PostHeader'
 
 import {
+  PostProps,
   DefaultParamsProps as ParamsProps,
   DefaultStaticProps as StaticProps,
   DefaultStaticPaths as StaticPaths
 } from '../../types'
-import { PostsProps as Props } from './types'
 
 import styles from './styles.module.css'
 import PostItem from '../../components/PostItem'
+export interface PostsProps {
+  post: PostProps
+  morePosts: PostProps[]
+  preview?: boolean
+}
 
-const Post: React.FC<Props> = ({ post, morePosts }) => {
-  // const router = useRouter()
-  // if (!router.isFallback && !post?.slug) {
-  //   return <ErrorPage statusCode={404} />
-  // }
-
+const Post: React.FC<PostsProps> = ({ post, morePosts }) => {
   if (!post) {
     // TO-DO - Show Shimmer Effect
     return <></>

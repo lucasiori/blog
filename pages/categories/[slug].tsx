@@ -15,11 +15,15 @@ import {
   DefaultStaticProps as StaticProps,
   DefaultStaticPaths as StaticPaths
 } from '../../types'
-import { CategoriesProps as Props } from './types'
 
 import styles from './styles.module.css'
 
-const Category: React.FC<Props> = ({ categories, posts }) => {
+export interface CategoriesProps {
+  posts: PostProps[]
+  categories: CategoryProps[]
+}
+
+const Category: React.FC<CategoriesProps> = ({ categories, posts }) => {
   const router = useRouter()
   const { slug } = router.query
 

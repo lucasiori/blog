@@ -7,8 +7,11 @@ import HeroPost from '../components/HeroPost'
 import PostItem from '../components/PostItem'
 import CategoryItem from '../components/CategoryItem'
 
-import { DefaultStaticProps as StaticProps } from '../types'
-import { HomepageProps as Props } from './types'
+import {
+  DefaultStaticProps as StaticProps,
+  CategoryProps,
+  PostProps
+} from '../types'
 
 import ProfileImg from '../public/assets/images/profile.png'
 import HtmlIcon from '../public/assets/icons/html.png'
@@ -22,7 +25,12 @@ import JQueryIcon from '../public/assets/icons/jquery.png'
 
 import styles from './styles.module.css'
 
-const Homepage: React.FC<Props> = ({ categories = [], posts = [] }) => {
+export interface HomepageProps {
+  posts?: PostProps[]
+  categories?: CategoryProps[]
+}
+
+const Homepage: React.FC<HomepageProps> = ({ categories = [], posts = [] }) => {
   const heroPost = useMemo(() => {
     return posts[0]
   }, [posts])

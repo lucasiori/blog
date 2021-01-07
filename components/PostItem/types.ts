@@ -1,5 +1,5 @@
-import Post from '../../types/Post'
+import { PostProps } from '../../types'
 
 export interface PostItemProps {
-  post: Post
+  post: PostProps
 }

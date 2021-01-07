@@ -1,4 +1,4 @@
-import PostProps from '../../types/Post'
+import { PostProps } from '../../types'
 
 export interface HeroPostProps {
   post: PostProps
