@@ -1,27 +1,27 @@
 import React, { useMemo } from 'react'
-import { getAllCategories } from '../api/categories'
-import { getAllPosts } from '../api/posts'
+import { getAllCategories } from '../../api/categories'
+import { getAllPosts } from '../../api/posts'
 
-import Layout from '../components/Layout'
-import HeroPost from '../components/HeroPost'
-import PostItem from '../components/PostItem'
-import CategoryItem from '../components/CategoryItem'
+import Layout from '../../components/Layout'
+import HeroPost from '../../components/HeroPost'
+import PostItem from '../../components/PostItem'
+import CategoryItem from '../../components/CategoryItem'
 
 import {
   DefaultStaticProps as StaticProps,
   CategoryProps,
   PostProps
-} from '../types'
+} from '../../types'
 
-import ProfileImg from '../public/assets/images/profile.png'
-import HtmlIcon from '../public/assets/icons/html.png'
-import CssIcon from '../public/assets/icons/css.png'
-import JavascriptIcon from '../public/assets/icons/javascript.png'
-import TypescriptIcon from '../public/assets/icons/typescript.png'
-import ReactJsIcon from '../public/assets/icons/reactjs.png'
-import ReactNativeIcon from '../public/assets/icons/react-native.png'
-import NodeJsIcon from '../public/assets/icons/nodejs.png'
-import JQueryIcon from '../public/assets/icons/jquery.png'
+import ProfileImg from '../../public/assets/images/profile.png'
+import HtmlIcon from '../../public/assets/icons/html.png'
+import CssIcon from '../../public/assets/icons/css.png'
+import JavascriptIcon from '../../public/assets/icons/javascript.png'
+import TypescriptIcon from '../../public/assets/icons/typescript.png'
+import ReactJsIcon from '../../public/assets/icons/reactjs.png'
+import ReactNativeIcon from '../../public/assets/icons/react-native.png'
+import NodeJsIcon from '../../public/assets/icons/nodejs.png'
+import JQueryIcon from '../../public/assets/icons/jquery.png'
 
 import styles from './styles.module.css'
 

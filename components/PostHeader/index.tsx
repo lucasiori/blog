@@ -11,7 +11,7 @@ import styles from './styles.module.css'
 const PostHeader: React.FC<Props> = ({ post }) => {
   const formattedDate = useMemo((): string => {
     return post
-      ? format(parseISO(post.date), "dd 'de' MMMM 'de' yyyy", {
+      ? format(parseISO(post.updatedAt), "dd 'de' MMMM 'de' yyyy", {
           locale: ptBR
         })
       : ''

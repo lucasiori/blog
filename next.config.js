@@ -1,10 +1,23 @@
 const withImages = require('next-images');
 
 module.exports = withImages({
-  target: "serverless",
+  target: 'serverless',
   esModule: true,
-  fileExtensions: ["png"],
-  webpack(config) {
+  fileExtensions: ['png'],
+  async redirects() {
+    return [
+      {
+        source: '/',
+        destination: '/home',
+        permanent: true,
+      },
+    ]
+  },
+  webpack(config, { isServer }) {
+    if (isServer) {
+      require('./scripts/generateSiteMap')
+    }
+
     config.module.rules.push({
       test: /\.svg$/,
       issuer: {

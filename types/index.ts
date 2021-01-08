@@ -12,6 +12,8 @@ export interface CategoryProps {
   badgeIcon: string
   image: string
   position: number
+  createdAt: string
+  updatedAt: string
 }
 
 export interface PostProps {
@@ -20,7 +22,6 @@ export interface PostProps {
   title: string
   excerpt: string
   content: string
-  date: string
   coverImage: string
   readTime: number
   author: AuthorProps
@@ -28,6 +29,8 @@ export interface PostProps {
   ogImage: {
     url: string
   }
+  createdAt: string
+  updatedAt: string
 }
 
 export interface DefaultParamsProps {

@@ -33,8 +33,9 @@ export function getPostBySlug(
       'title',
       'excerpt',
       'coverImage',
-      'date',
-      'category'
+      'category',
+      'createdAt',
+      'updatedAt'
     ]
   }
 
@@ -46,11 +47,12 @@ export function getPostBySlug(
       'excerpt',
       'content',
       'coverImage',
-      'date',
       'readTime',
       'category',
       'author',
-      'ogImage'
+      'ogImage',
+      'createdAt',
+      'updatedAt'
     ]
   }
 
@@ -84,7 +86,7 @@ export function getAllPosts(limit?: number, excludePost?: number): Item[] {
 
   const posts = slugs
     .map(slug => getPostBySlug(slug))
-    .sort((post1, post2) => (post1.date > post2.date ? -1 : 1))
+    .sort((post1, post2) => (post1.updatedAt > post2.updatedAt ? -1 : 1))
     .filter(post => post.id !== excludePost)
 
   return posts

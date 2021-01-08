@@ -21,7 +21,16 @@ export function getCategoryBySlug(slug: string): Item {
   const { data } = matter(fileContents)
 
   const items: Item = {}
-  const fields = ['id', 'slug', 'title', 'badgeIcon', 'image', 'position']
+  const fields = [
+    'id',
+    'slug',
+    'title',
+    'badgeIcon',
+    'image',
+    'position',
+    'createdAt',
+    'updatedAt'
+  ]
 
   fields.forEach(field => {
     if (field === 'slug') {

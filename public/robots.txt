@@ -1,0 +1,4 @@
+Sitemap: https://5ff6592e8bb98500075e436a--vibrant-pasteur-32b8cc.netlify.app/sitemap.xml
+
+User-agent: *
+Allow: /*
