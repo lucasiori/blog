@@ -1,4 +1,5 @@
 import React, { useMemo } from 'react'
+import Head from 'next/head'
 import { getAllCategories } from '../../api/categories'
 import { getAllPosts } from '../../api/posts'
 
@@ -40,7 +41,15 @@ const Homepage: React.FC<HomepageProps> = ({ categories = [], posts = [] }) => {
   }, [posts])
 
   return (
-    <Layout pageTitle="Lucas Iori - Home">
+    <Layout pageTitle="Lucas Iori">
+      <Head>
+        <meta
+          name="description"
+          content="Este é um blog voltado para pessoas que buscam aprimorar seu
+          conhecimento em tecnologias front-end."
+        />
+      </Head>
+
       <div className={styles.container}>
         {heroPost && <HeroPost post={heroPost} />}
 

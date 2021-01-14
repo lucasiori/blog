@@ -1,4 +1,5 @@
 import React, { useMemo } from 'react'
+import Head from 'next/head'
 import { useRouter } from 'next/router'
 import { getAllCategories } from '../../api/categories'
 import { getPostsByCategory } from '../../api/posts'
@@ -46,6 +47,14 @@ const Category: React.FC<CategoriesProps> = ({ categories, posts }) => {
 
   return (
     <Layout pageTitle={`Lucas Iori - ${currentCategory.title}`}>
+      <Head>
+        <meta
+          name="description"
+          content={`Nesta página você encontra tudo sobre ${currentCategory.title},
+          tecnologia utilizada no desenvolvimento de websites.`}
+        />
+      </Head>
+
       <section className={styles.hero} data-category-title={slug}>
         <img src={currentCategory.image} alt={currentCategory.title} />
       </section>

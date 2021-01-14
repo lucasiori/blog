@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import Link from 'next/link'
 
+import logoImg from '../../public/assets/images/logo.png'
+
 import styles from './styles.module.css'
 
 const Header: React.FC = () => {
@@ -10,7 +12,9 @@ const Header: React.FC = () => {
     <header className={styles.header}>
       <div className={styles.headerContent}>
         <div className={styles.logo}>
-          <span>Lucas Iori</span>
+          <Link href="/">
+            <img src={logoImg} alt="Lucas Iori" />
+          </Link>
         </div>
 
         <nav className={styles.navMenu}>

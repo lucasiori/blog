@@ -14,20 +14,14 @@
 }
 
 .logo {
-  width: 17.5rem;
-  height: 3.125rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: var(--color-black);
   margin-right: auto;
 }
 
-.logo span {
-  font-family: 'Ubuntu';
-  color: var(--color-white);
-  font-size: 1.125rem;
-  font-weight: 700;
+.logo img {
+  max-height: 3.437rem;
 }
 
 .message {

@@ -2,17 +2,17 @@
 id: 2
 title: 'Learn How to Pre-render Pages Using Static Generation with Next.js'
 excerpt: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Praesent elementum facilisis leo vel fringilla est ullamcorper eget. At imperdiet dui accumsan sit amet nulla facilities morbi tempus.'
-coverImage: '/assets/blog/hello-world/cover.jpg'
+coverImage: '/assets/blog/posts/hello-world/cover.jpg'
 readTime: 3
 category:
   id: 'html'
   title: 'HTML'
   badgeIcon: '/assets/icons/html.png'
 author:
-  name: Tim Neutkens
-  picture: '/assets/blog/authors/tim.jpeg'
+  name: Lucas Iori
+  picture: '/assets/blog/authors/lucas.png'
 ogImage:
-  url: '/assets/blog/hello-world/cover.jpg'
+  url: '/assets/blog/posts/hello-world/cover.jpg'
 createdAt: '2021-01-06'
 updatedAt: '2021-01-06'
 ---

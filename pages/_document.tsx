@@ -5,7 +5,10 @@ export default class MyDocument extends Document {
   render(): JSX.Element {
     return (
       <Html lang="pt-BR">
-        <Head />
+        <Head>
+          <meta name="author" content="Lucas Iori" />
+        </Head>
+
         <body>
           <Main />
           <NextScript />

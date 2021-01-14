@@ -1,5 +1,6 @@
 import React from 'react'
 
+import logoImg from '../../public/assets/images/logo-footer.png'
 import emailIcon from '../../public/assets/icons/email.png'
 import linkedinIcon from '../../public/assets/icons/linkedin.png'
 import githubIcon from '../../public/assets/icons/github.png'
@@ -11,7 +12,7 @@ const Footer: React.FC = () => {
     <footer className={styles.footer}>
       <div className={styles.footerContent}>
         <div className={styles.logo}>
-          <span>Lucas Iori</span>
+          <img src={logoImg} alt="Lucas Iori" />
         </div>
 
         <div className={styles.message}>

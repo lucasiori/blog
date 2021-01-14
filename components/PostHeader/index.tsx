@@ -31,7 +31,9 @@ const PostHeader: React.FC<Props> = ({ post }) => {
             className={`${styles.postHeaderInformation} ${styles.postHeaderAuthor}`}
           >
             <img src={post.author.picture} alt={post.author.name} />
-            <h4>{post.author.name}</h4>
+            <h4>
+              <time>{post.author.name}</time>
+            </h4>
           </div>
 
           <div

@@ -15,6 +15,8 @@ import {
 
 import styles from './styles.module.css'
 import PostItem from '../../components/PostItem'
+
+import { BASE_URL } from '../../lib/constants'
 export interface PostsProps {
   post: PostProps
   morePosts: PostProps[]
@@ -31,9 +33,17 @@ const Post: React.FC<PostsProps> = ({ post, morePosts }) => {
     <Layout pageTitle={`Lucas Iori - ${post.title}`}>
       <article className={styles.postContainer}>
         <Head>
-          {post && post.ogImage && post.ogImage.url && (
-            <meta property="og:image" content={post.ogImage.url} />
-          )}
+          <meta name="description" content={post.excerpt} />
+
+          <meta
+            property="og:url"
+            content={`${BASE_URL}/${post.slug}`}
+            key="ogurl"
+          />
+          <meta property="og:image" content={post.ogImage.url} key="ogimage" />
+          <meta property="og:site_name" content="Lucas Iori" key="ogsitename" />
+          <meta property="og:title" content={post.title} key="ogtitle" />
+          <meta property="og:description" content={post.excerpt} key="ogdesc" />
         </Head>
 
         <PostHeader post={post} />

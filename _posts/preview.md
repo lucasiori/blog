@@ -2,17 +2,17 @@
 id: 3
 title: 'Preview Mode for Static Generation'
 excerpt: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Praesent elementum facilisis leo vel fringilla est ullamcorper eget. At imperdiet dui accumsan sit amet nulla facilities morbi tempus.'
-coverImage: '/assets/blog/preview/cover.jpg'
+coverImage: '/assets/blog/posts/preview/cover.jpg'
 readTime: 6
 category:
   id: 'javascript'
   title: 'Javascript'
   badgeIcon: '/assets/icons/javascript.png'
 author:
-  name: Joe Haddad
-  picture: '/assets/blog/authors/joe.jpeg'
+  name: Lucas Iori
+  picture: '/assets/blog/authors/lucas.png'
 ogImage:
-  url: '/assets/blog/preview/cover.jpg'
+  url: '/assets/blog/posts/preview/cover.jpg'
 createdAt: '2021-01-06'
 updatedAt: '2021-01-06'
 ---
