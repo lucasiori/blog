@@ -49,14 +49,13 @@ html, body, #__next {
 }
 
 body, input {
-  font: 16px 'Source Sans Pro', serif;
-  font-display: swap;
+  font-size: 16px;
+  font-family: 'Source Sans Pro', serif;
 }
 
 h1, h2, h3, h4, h5, h6, button, strong {
   font-family: 'Ubuntu', sans-serif;
   color: var(--color-font-header);
-  font-display: swap;
 }
 
 button {

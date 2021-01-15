@@ -31,9 +31,9 @@ const Meta: React.FC = () => {
       <meta name="theme-color" content="#3396FF" />
       <link rel="shortcut icon" href="/favicon/favicon.ico" />
       <link rel="alternate" type="application/rss+xml" href="/feed.xml" />
+      <link rel="preconnect" href="https://fonts.gstatic.com"></link>
       <link
-        rel="preload"
-        as="style"
+        rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400&family=Ubuntu:wght@500;700&display=swap"
       />
     </Head>
