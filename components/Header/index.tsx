@@ -36,7 +36,11 @@ const Header: React.FC = () => {
           aria-expanded={mobileMenuIsExpanded}
           onClick={() => setMobileMenuIsExpanded(!mobileMenuIsExpanded)}
         >
-          <button type="button" className={styles.burguerMenu}>
+          <button
+            type="button"
+            className={styles.burguerMenu}
+            aria-label="menu"
+          >
             <span></span>
             <span></span>
             <span></span>
